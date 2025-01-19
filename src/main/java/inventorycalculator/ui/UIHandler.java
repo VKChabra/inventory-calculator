@@ -30,14 +30,7 @@ public class UIHandler {
         Button captureButton = new Button("Capture Screenshot");
         captureButton.setOnAction(e -> {
             try {
-                BufferedImage screenshot = screenshotCapture.captureScreenshot();
-                FileChooser fileChooser = new FileChooser();
-                fileChooser.setInitialFileName("screenshot.png");
-                File file = fileChooser.showSaveDialog(primaryStage);
-                if (file != null) {
-                    ImageIO.write(screenshot, "png", file);
-                    showInfo("Screenshot saved successfully!");
-                }
+                screenshotCapture.captureSelectedArea();
             } catch (Exception ex) {
                 showError("Error capturing screenshot: " + ex.getMessage());
             }
