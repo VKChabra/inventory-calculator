@@ -11,6 +11,7 @@ public class ImageRecognition {
     public ImageRecognition() {
         tesseract = new Tesseract();
         tesseract.setDatapath("tessdata"); // Set path to Tesseract data files
+        tesseract.setLanguage("eng");     // Language to use
     }
 
     public String recognizeText(BufferedImage image) throws TesseractException {
